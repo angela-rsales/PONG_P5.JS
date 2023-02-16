@@ -56,6 +56,7 @@ function draw() {
   verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente);
   incluiPacar();
   marcaPonto();
+  bolinhaNaoFicaPresa();
 }
 
 function mostraBolinha (){
@@ -119,7 +120,7 @@ function calculaChanceDeErrar(){
 }
 
 function movimentaRaqueteOponente(){
-  velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30;
+  velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 40;
   yRaqueteOponente += velocidadeYOponente;
   calculaChanceDeErrar();
   
@@ -154,4 +155,10 @@ function marcaPonto(){
     pontosOponente +=1;
     ponto.play();
   }
+}
+
+function bolinhaNaoFicaPresa(){
+    if (xBolinha - raio < 0){
+    xBolinha = 23
+    }
 }
